@@ -49,7 +49,6 @@ A small application representing CRUD operations on a university database.
 <td>Get course by code</td>
 <td>
   
-  
 ```json
 {
   "course":
@@ -61,6 +60,7 @@ A small application representing CRUD operations on a university database.
       }
 }
 ```
+
 </td>
 </tr>
 <tr>
