@@ -112,9 +112,9 @@ go test ./server/pkg/data -race
 ```
 
 ## Protocol Buffers
-To generate go models you should be in `/proto` folder. Run the following command:
+To generate go models run the following command:
 ```
-protoc -I . course.proto --grpc-gateway_out . --go_out=plugins=grpc:.
+protoc -I ./proto course.proto --grpc-gateway_out ./proto --go_out=plugins=grpc:./proto
 ```
 
 ## Docker
