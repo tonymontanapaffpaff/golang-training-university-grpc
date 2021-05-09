@@ -15,6 +15,7 @@ A small application representing CRUD operations on a university database.
 <td>Get all courses</td>
 <td>
   
+  
 ```json
 {
   "courses":
@@ -48,6 +49,7 @@ A small application representing CRUD operations on a university database.
 <td>Get course by code</td>
 <td>
   
+  
 ```json
 {
   "course":
@@ -67,6 +69,7 @@ A small application representing CRUD operations on a university database.
 <td>Create new course</td>
 <td>
   
+  
 ```json
 {
   "code":101
@@ -80,6 +83,7 @@ A small application representing CRUD operations on a university database.
 <td>Update course description</td>
 <td>
   
+  
 ```json
 {
   "code":101
@@ -92,6 +96,7 @@ A small application representing CRUD operations on a university database.
 <td>DELETE</td>
 <td>Delete course by code</td>
 <td>
+  
   
 ```json
 {}
