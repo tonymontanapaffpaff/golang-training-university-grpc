@@ -40,7 +40,6 @@ A small application representing CRUD operations on a university database.
     ]
 }
 ```
-
 </td>
 </tr>
 <tr>
@@ -60,7 +59,6 @@ A small application representing CRUD operations on a university database.
       }
 }
 ```
-
 </td>
 </tr>
 <tr>
@@ -68,7 +66,6 @@ A small application representing CRUD operations on a university database.
 <td>POST</td>
 <td>Create new course</td>
 <td>
-  
   
 ```json
 {
@@ -82,8 +79,7 @@ A small application representing CRUD operations on a university database.
 <td>PATCH</td>
 <td>Update course description</td>
 <td>
-  
-  
+    
 ```json
 {
   "code":101
@@ -96,7 +92,6 @@ A small application representing CRUD operations on a university database.
 <td>DELETE</td>
 <td>Delete course by code</td>
 <td>
-  
   
 ```json
 {}
@@ -113,7 +108,7 @@ The application will be aviable on the following address: `localhost:8383/{path}
 
 ## Unit tests
 ```
-go test -race
+go test ./server/pkg/data -race
 ```
 
 ## Protocol Buffers
