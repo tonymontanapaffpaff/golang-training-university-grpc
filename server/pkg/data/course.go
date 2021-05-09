@@ -63,7 +63,7 @@ func (u CourseData) Delete(code int32) error {
 	return nil
 }
 
-func (u CourseData) GetDepartmentName(code int) (string, error) {
+func (u CourseData) GetDepartmentName(code int32) (string, error) {
 	var departmentName string
 	result := u.Db.Model(&Course{}).
 		Select("departments.name").
