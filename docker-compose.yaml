@@ -1,0 +1,43 @@
+version: '3.3'
+
+services:
+  db-university:
+    image: lyyych/db-university:latest
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=university
+    ports:
+      - 5432:5432
+    container_name: db-university
+    networks:
+      - university-network
+  backend:
+    image: lyyych/backend:latest
+    environment:
+      - DB_USERS_HOST=0.0.0.0
+      - DB_USERS_PORT=5432
+      - DB_USERS_USER=postgres
+      - DB_USERS_DBNAME=university
+      - DB_USERS_PASSWORD=postgres
+      - DB_USERS_SSL=disable
+    ports:
+      - 8080:8080
+    container_name: backend
+    depends_on:
+      - db-university
+    networks:
+      - university-network
+  gateway:
+    image: lyyych/gateway:latest
+    ports:
+      - 8383:8383
+    container_name: gateway
+    depends_on:
+      - backend
+    networks:
+      - university-network
+
+networks:
+  university-network:
+    name: university-network

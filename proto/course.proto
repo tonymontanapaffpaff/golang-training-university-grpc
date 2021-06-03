@@ -1,0 +1,84 @@
+// you can generate go models by the following command:
+// protoc -I . course.proto --grpc-gateway_out . --go_out=plugins=grpc:.
+
+syntax = "proto3";
+
+option go_package = "/go_proto";
+
+import "google/api/annotations.proto";
+
+package course;
+
+service CourseService {
+  rpc CreateCourse(CreateCourseRequest) returns (CreateCourseResponse) {
+    option(google.api.http) = {
+      post: "/courses"
+      body: "*"
+    };
+  }
+  rpc GetCourse(GetCourseRequest) returns (GetCourseResponse) {
+    option(google.api.http) = {
+      get: "/courses/{code}"
+    };
+  }
+  rpc GetAllCourses(GetAllCoursesRequest) returns (GetAllCoursesResponse) {
+    option(google.api.http) = {
+      get: "/courses"
+    };
+  }
+    rpc UpdateCourseDescription(UpdateCourseRequest) returns (UpdateCourseResponse) {
+      option(google.api.http) = {
+        patch: "/courses/{code}"
+        body: "*"
+      };
+    }
+    rpc DeleteCourse(DeleteCourseRequest) returns (DeleteCourseResponse) {
+      option(google.api.http) = {
+        delete: "/courses/{code}"
+      };
+    }
+}
+
+message Course {
+  int32 code = 1;
+  string title = 2;
+  int32 departmentCode = 3;
+  string description = 4;
+}
+
+message CreateCourseRequest {
+  Course course = 1;
+}
+
+message CreateCourseResponse {
+  int32 code = 1;
+}
+
+message GetCourseRequest {
+  int32 code = 1;
+}
+
+message GetCourseResponse {
+  Course course = 1;
+}
+
+message GetAllCoursesRequest {}
+
+message GetAllCoursesResponse {
+  repeated Course courses = 1;
+}
+
+message UpdateCourseRequest {
+  int32 code = 1;
+  string description = 2;
+}
+
+message UpdateCourseResponse {
+  int32 code = 1;
+}
+
+message DeleteCourseRequest {
+  int32 code = 1;
+}
+
+message DeleteCourseResponse {}
